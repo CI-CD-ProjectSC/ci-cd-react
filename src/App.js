@@ -9,7 +9,6 @@ function App() {
         {/* Logo animado */}
         <img src={logo} className="App-logo" alt="React Logo" />
 
-        {/* Texto principal */}
         <p>
           Edite o arquivo <code>src/App.js</code> e salve para recarregar a página.
         </p>
