@@ -1,38 +1,130 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
 .App {
   text-align: center;
+  padding-bottom: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-section {
+  background-color: #007bff;
+  color: white;
+  padding: 80px 20px;
+  margin-bottom: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero-section p {
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+.services-section {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-section h2 {
+  font-size: 2em;
+  color: #007bff;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.service-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 3em;
+  margin-bottom: 15px;
+  background: #007bff1a;
+  border-radius: 50%;
+  padding: 10px;
+  width: 60px;
+  height: 60px;
+  line-height: 40px;
+}
+
+.card-title {
+  color: #007bff;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1em;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.card-button {
+  background-color: #28a745;
   color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.card-button:hover {
+  background-color: #218838;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-cta {
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.footer-cta p {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #ffc107;
+  color: #333;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e0a800;
 }
