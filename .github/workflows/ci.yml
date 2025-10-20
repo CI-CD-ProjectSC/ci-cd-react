@@ -1,29 +1,56 @@
-name: React App CI
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop, feature/* ]
+    branches: [main]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # 1. Baixa o código do repositório
+      
+name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      # 2. Instala dependências e testa o frontend
+      
+name: Setup Node.js for frontend
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+name: Install frontend dependencies
+    run: |
+      cd frontend
+      npm install
+      npm run build
 
-      - name: Install dependencies
-        run: npm install
+      # 3. Instala dependências e testa o backend
+      
+name: Install backend dependencies
+      run: |
+        cd backend
+        npm install
+        npm test
 
-      - name: Run build
-        run: npm run build
+      # 4. (Opcional) Build Docker images
+      
+name: Build Docker images
+      run: |
+        docker build -t my-frontend ./frontend
+        docker build -t my-backend ./backend
 
-      - name: Run tests (opcional)
-        run: npm test --if-present
+      # 5. (Opcional) Push para Docker Hub
+      # - name: Login to Docker Hub
+      #   uses: docker/login-action@v3
+      #   with:
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      #
+      # - name: Push images
+      #   run: |
+      #     docker push my-frontend
+      #     docker push my-backend
